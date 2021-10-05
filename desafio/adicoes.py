@@ -33,8 +33,8 @@ def add_imcs(data: List[dict]) -> List[dict]:
         else:
             data['pessoas'][key]['imc'] = 'Obesidade'
 
-    return {}
-    #return data
+    #return {}
+    return data
 
 print(add_imcs(List[dict]))
 

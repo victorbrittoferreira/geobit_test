@@ -60,7 +60,8 @@ def filtra_maior_de_idade_com_imc_acima_do_peso(data: List[dict]) -> List[dict]:
     for i in data_buffer: 
         data['pessoas'].append(i)
 
-    return {}
+    return data
+    #return {}
 
 print(filtra_maior_de_idade_com_imc_acima_do_peso())
 
@@ -84,4 +85,5 @@ def filtra_mulheres_de_meeren_braavos(data: List[dict]) -> List[dict]:
     for i in data_buffer: 
         data['pessoas'].append(i)
 
-    return {}
+    return data
+    #return {}
