@@ -3,8 +3,6 @@ import datetime, time
 from typing import List
 from leitura import ler_json
 
-
-
 data = deepcopy(ler_json())
 
 def add_imcs(data: List[dict]) -> List[dict]:
@@ -15,8 +13,6 @@ def add_imcs(data: List[dict]) -> List[dict]:
         Acima do peso: Entre 30 kg/m² e 34.9 kg/m²
         Obesidade: Acime de 35 kg/m² 
     """
-    #data = deepcopy(ler_json())
-    #data = deepcopy(data)
 
     for key, _ in enumerate (data['pessoas']):
 
@@ -37,15 +33,13 @@ def add_imcs(data: List[dict]) -> List[dict]:
         else:
             data['pessoas'][key]['imc'] = 'Obesidade'
 
-    #return {}
-    return data
+    return {}
+    #return data
 
 print(add_imcs(List[dict]))
 
 
 def add_nome_completo(data: ist[dict]) -> List[dict]:
-    #data = deepcopy(ler_json())
-    #data = deepcopy(data)
 
     for key, _ in enumerate (data['pessoas']):
 
@@ -59,7 +53,6 @@ def add_nome_completo(data: ist[dict]) -> List[dict]:
 
 
 def add_idade(data: List[dict]) -> List[dict]:
-    #data = deepcopy(ler_json())
     
     for key, _ in enumerate (data['pessoas']):
 

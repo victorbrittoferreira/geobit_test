@@ -7,13 +7,11 @@ import datetime, time
 
 import pdb
 
-#data = deepcopy(ler_json())
+data = deepcopy(ler_json())
 
 
 def filtra_maior_de_idade_com_imc_acima_do_peso(data: List[dict]) -> List[dict]:
 
-    #data = deepcopy(data)
-    data = deepcopy(ler_json())
     data_buffer = []
 
     for index, _ in enumerate (data['pessoas']):
@@ -21,7 +19,6 @@ def filtra_maior_de_idade_com_imc_acima_do_peso(data: List[dict]) -> List[dict]:
         ## PS: Não sei o quão autônomo vocês gostariam que fosse a função, 
         # sendo assim. eu a considerei de forma absoluta, isto é, chamar outra função de outro aquivo.
         
-
         birth_timestamp = data['pessoas'][index]['nascimento']
         now_timestamp = time.time()
         age_timestamp = now_timestamp - birth_timestamp
@@ -63,7 +60,6 @@ def filtra_maior_de_idade_com_imc_acima_do_peso(data: List[dict]) -> List[dict]:
     for i in data_buffer: 
         data['pessoas'].append(i)
 
-    #return data
     return {}
 
 print(filtra_maior_de_idade_com_imc_acima_do_peso())
@@ -71,7 +67,6 @@ print(filtra_maior_de_idade_com_imc_acima_do_peso())
 
 def filtra_mulheres_de_meeren_braavos(data: List[dict]) -> List[dict]:
 
-    data = deepcopy(ler_json())
     data_buffer = []
     
     for index, _ in enumerate (data['pessoas']):
@@ -89,5 +84,4 @@ def filtra_mulheres_de_meeren_braavos(data: List[dict]) -> List[dict]:
     for i in data_buffer: 
         data['pessoas'].append(i)
 
-    #return data
     return {}
