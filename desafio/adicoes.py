@@ -1,11 +1,13 @@
 from copy import deepcopy
 import datetime, time
+from typing import List
+from leitura import ler_json
 
-from .leitura import ler_json
 
-#data = deepcopy(ler_json())
 
-def add_imcs():
+data = deepcopy(ler_json())
+
+def add_imcs(data: List[dict]) -> List[dict]:
     """ 
         Muito abaixo do peso:  menor que 17 kg/m²
         Abaixo do Peso: Entre 17 kg/m² e 18.4 kg/m²
@@ -14,7 +16,7 @@ def add_imcs():
         Obesidade: Acime de 35 kg/m² 
     """
     #data = deepcopy(ler_json())
-    data = deepcopy(data)
+    #data = deepcopy(data)
 
     for key, _ in enumerate (data['pessoas']):
 
@@ -35,13 +37,15 @@ def add_imcs():
         else:
             data['pessoas'][key]['imc'] = 'Obesidade'
 
-    #return data
-    return {}
+    #return {}
+    return data
+
+print(add_imcs(List[dict]))
 
 
-def add_nome_completo():
+def add_nome_completo(data: ist[dict]) -> List[dict]:
     #data = deepcopy(ler_json())
-    data = deepcopy(data)
+    #data = deepcopy(data)
 
     for key, _ in enumerate (data['pessoas']):
 
@@ -50,11 +54,11 @@ def add_nome_completo():
         # delete nome and sobrenome atribute
         del data['pessoas'][key]['nome'],data['pessoas'][key]['sobrenome']
 
-    #return data
-    return {}
+    #return {}
+    return data
 
 
-def add_idade():
+def add_idade(data: List[dict]) -> List[dict]:
     #data = deepcopy(ler_json())
     
     for key, _ in enumerate (data['pessoas']):
@@ -67,5 +71,5 @@ def add_idade():
 
         data['pessoas'][key]['idade'] = int(year[0])
         
-    #return data
-    return {}
+    return data
+    #return {}

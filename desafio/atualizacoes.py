@@ -1,12 +1,15 @@
 from copy import deepcopy
 from datetime import datetime
 import time
+from typing import List
 
-from .leitura import ler_json
+from leitura import ler_json
 
-#data = deepcopy(ler_json())
+import pdb
 
-def atualiza_nascimento_timestamp_para_date_string():
+data = deepcopy(ler_json())
+
+def atualiza_nascimento_timestamp_para_date_string(data: List[dict]) -> List[dict]:
     #data = deepcopy(ler_json())
     data = deepcopy(data)
    
@@ -19,11 +22,12 @@ def atualiza_nascimento_timestamp_para_date_string():
             )
         data['pessoas'][key]['nascimento'] = birth_converted
         
-    #return data
-    return {}
+    return data
+    #return {}
 
+print(datualiza_nascimento_timestamp_para_date_string(data: List[dict]) -> List[dict]:)
 
-def atualiza_altura_centimetro_para_metro():
+def atualiza_altura_centimetro_para_metro(data: List[dict]) -> List[dict]:
     #data = deepcopy(ler_json())
     data = deepcopy(data)
     
@@ -34,7 +38,7 @@ def atualiza_altura_centimetro_para_metro():
         altura_converted = data['pessoas'][key]['altura'] / meter_in_centimetres
         data['pessoas'][key]['altura'] = altura_converted
 
-    #return data
-    return {}
+    return data
+    #return {}
 
 

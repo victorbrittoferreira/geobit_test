@@ -1,6 +1,8 @@
 from copy import deepcopy
 
+from typing import List
 from leitura import ler_json
+
 import datetime, time
 
 import pdb
@@ -8,7 +10,7 @@ import pdb
 #data = deepcopy(ler_json())
 
 
-def filtra_maior_de_idade_com_imc_acima_do_peso():
+def filtra_maior_de_idade_com_imc_acima_do_peso(data: List[dict]) -> List[dict]:
 
     #data = deepcopy(data)
     data = deepcopy(ler_json())
@@ -67,7 +69,7 @@ def filtra_maior_de_idade_com_imc_acima_do_peso():
 print(filtra_maior_de_idade_com_imc_acima_do_peso())
 
 
-def filtra_mulheres_de_meeren_braavos():
+def filtra_mulheres_de_meeren_braavos(data: List[dict]) -> List[dict]:
 
     data = deepcopy(ler_json())
     data_buffer = []
