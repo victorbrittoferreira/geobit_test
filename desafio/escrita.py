@@ -45,4 +45,4 @@ class Run(object):
             Transforme o dicionário self.json_data 
             em um arquivo chamado output.json
         """
-        ...
+        output.json =json.dumps(data)

@@ -1,9 +1,9 @@
 from copy import deepcopy
 
 from typing import List
-from leitura import ler_json
+from .leitura import ler_json
 
-from adicoes import add_imcs
+#from adicoes import add_imcs
 
 import datetime, time
 
@@ -27,8 +27,6 @@ def filtra_maior_de_idade_com_imc_acima_do_peso():
     data_buffer = []
 
     for index, _ in enumerate (data['pessoas']):
-    
-    
         
         birth_timestamp = data['pessoas'][index]['nascimento']
         now_timestamp = time.time()

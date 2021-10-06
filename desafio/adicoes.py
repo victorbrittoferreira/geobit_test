@@ -1,7 +1,7 @@
 from copy import deepcopy
 import datetime, time
 from typing import List
-from leitura import ler_json
+from .leitura import ler_json
 
 data = deepcopy(ler_json())
 
@@ -41,7 +41,7 @@ def add_imcs():
 
 
 #def add_nome_completo(data: ist[dict]) -> List[dict]:
-#def add_nome_completo():
+def add_nome_completo():
 
     for index, _ in enumerate (data['pessoas']):
 
@@ -55,7 +55,7 @@ def add_imcs():
 
 
 #def add_idade(data: List[dict]) -> List[dict]:
-#def add_idade():
+def add_idade():
     
     for index, _ in enumerate (data['pessoas']):
 

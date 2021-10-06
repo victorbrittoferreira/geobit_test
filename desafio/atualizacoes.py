@@ -3,7 +3,7 @@ from datetime import datetime, date
 import time
 from typing import List
 
-from leitura import ler_json
+from .leitura import ler_json
 
 import pdb 
 
@@ -32,8 +32,6 @@ def atualiza_nascimento_timestamp_para_date_string(data: List[dict]) -> List[dic
 
 def atualiza_altura_centimetro_para_metro(data: List[dict]) -> List[dict]:
 #def atualiza_altura_centimetro_para_metro():
-    #data = deepcopy(ler_json())
-    #data = deepcopy(data)
     
     for index, _ in enumerate (data['pessoas']):
 
