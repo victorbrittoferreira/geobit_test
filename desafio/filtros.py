@@ -3,6 +3,8 @@ from copy import deepcopy
 from typing import List
 from leitura import ler_json
 
+from adicoes import add_imcs
+
 import datetime, time
 
 import pdb
@@ -10,30 +12,42 @@ import pdb
 data = deepcopy(ler_json())
 
 
-def filtra_maior_de_idade_com_imc_acima_do_peso(data: List[dict]) -> List[dict]:
+#def filtra_maior_de_idade_com_imc_acima_do_peso(data: List[dict]) -> List[dict]:
+def filtra_maior_de_idade_com_imc_acima_do_peso():
+    """
+        Não sei o quão autônomo você gostaria que fosse a função, pois eu a considerei de forma absoluta,
+    isto é, não chamar outra função de outro aquivo para realizar a função IMC.
+    Se for considerar autonomia relativa, ou interdependente, favor descomentar abaixo 
 
+    dataimc e data
+    """
+    #dataimc = add_imcs()
+    #data = dataimc
+    
     data_buffer = []
 
     for index, _ in enumerate (data['pessoas']):
-
-        ## PS: Não sei o quão autônomo vocês gostariam que fosse a função, 
-        # sendo assim. eu a considerei de forma absoluta, isto é, chamar outra função de outro aquivo.
+    
+    
         
         birth_timestamp = data['pessoas'][index]['nascimento']
         now_timestamp = time.time()
         age_timestamp = now_timestamp - birth_timestamp
         seconds_in_year =31536000
         year = divmod(age_timestamp, seconds_in_year)
+        #print(int(year[0]))
         data['pessoas'][index]['idade'] = int(year[0])
 
-        #________________________
+        ##########################
+
+        ## Descomite pra ser absolutamente independente da função add_imc e, por seguinte, a comente
 
         weight = data['pessoas'][index]['peso']
         height = data['pessoas'][index]['altura']
         
         height_in_meters = height/ 100
         imc = weight / (height_in_meters**2)
-
+        
         if  imc < 17:
             data['pessoas'][index]['imc'] = 'Muito abaixo do peso'
         elif imc <= 18.4:
@@ -45,8 +59,9 @@ def filtra_maior_de_idade_com_imc_acima_do_peso(data: List[dict]) -> List[dict]:
         else:
             data['pessoas'][index]['imc'] = 'Obesidade'
 
-        #__________________________________
-    
+        ############################
+        #print(data['pessoas'][index]['imc'])
+
         idade = data['pessoas'][index]['idade']
         imc = data['pessoas'][index]['imc']
         above_normal_weight= ['Acima do peso' , 'Obesidade']
@@ -63,10 +78,9 @@ def filtra_maior_de_idade_com_imc_acima_do_peso(data: List[dict]) -> List[dict]:
     return data
     #return {}
 
-print(filtra_maior_de_idade_com_imc_acima_do_peso())
 
-
-def filtra_mulheres_de_meeren_braavos(data: List[dict]) -> List[dict]:
+#def filtra_mulheres_de_meeren_braavos(data: List[dict]) -> List[dict]:
+def filtra_mulheres_de_meeren_braavos():
 
     data_buffer = []
     
