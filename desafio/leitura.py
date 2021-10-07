@@ -7,3 +7,4 @@ def ler_json():
         data = json.load(json_file)
   
     return data
+

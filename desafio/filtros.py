@@ -12,8 +12,8 @@ import pdb
 data = deepcopy(ler_json())
 
 
-#def filtra_maior_de_idade_com_imc_acima_do_peso(data: List[dict]) -> List[dict]:
-def filtra_maior_de_idade_com_imc_acima_do_peso():
+def filtra_maior_de_idade_com_imc_acima_do_peso(data: List[dict]) -> List[dict]:
+#def filtra_maior_de_idade_com_imc_acima_do_peso():
     """
         Não sei o quão autônomo você gostaria que fosse a função, pois eu a considerei de forma absoluta,
     isto é, não chamar outra função de outro aquivo para realizar a função IMC.
@@ -77,8 +77,8 @@ def filtra_maior_de_idade_com_imc_acima_do_peso():
     #return {}
 
 
-#def filtra_mulheres_de_meeren_braavos(data: List[dict]) -> List[dict]:
-def filtra_mulheres_de_meeren_braavos():
+def filtra_mulheres_de_meeren_braavos(data: List[dict]) -> List[dict]:
+#def filtra_mulheres_de_meeren_braavos():
 
     data_buffer = []
     

@@ -1,3 +1,0 @@
-from  atualizacoes import atualiza_nascimento_timestamp_para_date_string , atualiza_altura_centimetro_para_metro
-
-print(atualiza_nascimento_timestamp_para_date_string ())
