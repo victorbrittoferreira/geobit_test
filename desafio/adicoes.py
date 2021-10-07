@@ -1,11 +1,10 @@
 from copy import deepcopy
 import datetime, time
 from typing import List
-from  .leitura import ler_json
 
-data = deepcopy(ler_json())
 
 def add_imcs(data: List[dict]) -> List[dict]:
+    data = deepcopy(data)
 #def add_imcs():
     """ 
         Muito abaixo do peso:  menor que 17 kg/m²
@@ -15,24 +14,27 @@ def add_imcs(data: List[dict]) -> List[dict]:
         Obesidade: Acime de 35 kg/m² 
     """
 
-    for index, _ in enumerate (data['pessoas']):
+    #for index, _ in enumerate (data['pessoas']):
+    for pessoa in data:
 
-        weight = data['pessoas'][index]['peso']
-        height = data['pessoas'][index]['altura']
+        #weight = data['pessoas'][index]['peso']
+        weight = pessoa['peso']
+        #height = data['pessoas'][index]['altura']
+        height = pessoa['altura']
         
         height_in_meters = height/ 100
         imc = weight / (height_in_meters**2)
 
         if  imc < 17:
-            data['pessoas'][index]['imc'] = 'Muito abaixo do peso'
+            pessoa['imc'] = 'Muito abaixo do peso'
         elif imc <= 18.4:
-            data['pessoas'][index]['imc'] = 'Abaixo do Peso'
+            pessoa['imc'] = 'Abaixo do Peso'
         elif imc <= 29.9:
-            data['pessoas'][index]['imc'] = 'Peso normal'
+            pessoa['imc'] = 'Peso normal'
         elif imc <= 34.9:
-            data['pessoas'][index]['imc'] = 'Acima do peso'
+            pessoa['imc'] = 'Acima do peso'
         else:
-            data['pessoas'][index]['imc'] = 'Obesidade'
+            pessoa['imc'] = 'Obesidade'
 
     #return {}
     return data
@@ -41,31 +43,34 @@ def add_imcs(data: List[dict]) -> List[dict]:
 
 
 def add_nome_completo(data: List[dict]) -> List[dict]:
+    data = deepcopy(data)
 #def add_nome_completo():
 
-    for index, _ in enumerate (data['pessoas']):
+    #for index, _ in enumerate (data['pessoas']):
+    for pessoa in data:
 
         #Create nome_completo atribute
-        data['pessoas'][index]['nome_completo'] = data['pessoas'][index]['nome']+ " " + data['pessoas'][index]['sobrenome'] 
+        pessoa['nome_completo'] = pessoa['nome']+ " " + pessoa['sobrenome'] 
         # delete nome and sobrenome atribute
-        del data['pessoas'][index]['nome'],data['pessoas'][index]['sobrenome']
+        del pessoa['nome'],pessoa['sobrenome']
 
     #return {}
     return data
 
 
 def add_idade(data: List[dict]) -> List[dict]:
+    data = deepcopy(data)
 #def add_idade():
     
-    for index, _ in enumerate (data['pessoas']):
+    for pessoa in data:
 
-        birth_timestamp = data['pessoas'][index]['nascimento']
+        birth_timestamp = pessoa['nascimento']
         now_timestamp = time.time()
         age_timestamp = now_timestamp - birth_timestamp
         seconds_in_year =31536000
         year = divmod(age_timestamp, seconds_in_year)
 
-        data['pessoas'][index]['idade'] = int(year[0])
+        pessoa['idade'] = int(year[0])
         
     return data
     #return {}
