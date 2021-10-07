@@ -1,7 +1,7 @@
 from copy import deepcopy
-import datetime, time
 from typing import List
 
+import datetime, time, datetime
 
 def add_imcs(data: List[dict]) -> List[dict]:
     data = deepcopy(data)
@@ -41,7 +41,8 @@ def add_nome_completo(data: List[dict]) -> List[dict]:
     for pessoa in data:
 
         pessoa['nome_completo'] = pessoa['nome']+ " " + pessoa['sobrenome'] 
-        del pessoa['nome'],pessoa['sobrenome']
+
+        del pessoa['nome'], pessoa['sobrenome']
 
     return data
 
@@ -51,12 +52,15 @@ def add_idade(data: List[dict]) -> List[dict]:
 
     for pessoa in data:
 
-        birth_timestamp = pessoa['nascimento']
-        now_timestamp = time.time()
-        age_timestamp = now_timestamp - birth_timestamp
+        birth_str = pessoa['nascimento']
         seconds_in_year =31536000
-        year = divmod(age_timestamp, seconds_in_year)
+        now_timestamp = time.time()
 
-        pessoa['idade'] = int(year[0])
-        
+        birth_timestamp = datetime.datetime.timestamp(
+            datetime.datetime.strptime(birth_str,"%d/%m/%Y")
+        )
+        age = (now_timestamp - birth_timestamp)/ seconds_in_year
+
+        pessoa['idade'] = int(age)
+                
     return data

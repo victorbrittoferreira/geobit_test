@@ -1,4 +1,4 @@
-from desafio import adicoes, atualizacoes, filtros, leitura
+from desafio import adicoes, atualizacoes, filtros, leitura, escrita
 
 if __name__ == '__main__':
     # leitura
@@ -15,12 +15,8 @@ if __name__ == '__main__':
     pessoas = adicoes.add_nome_completo(pessoas)
 
     # filtros
-    filtro_1 = filtros.filtra_maior_de_idade_com_imc_acima_do_peso(pessoas)
-    filtro_2 = filtros.filtra_mulheres_de_meeren_braavos(pessoas)
+    filter_1 = filtros.filtra_maior_de_idade_com_imc_acima_do_peso(pessoas)
+    filter_2 = filtros.filtra_mulheres_de_meeren_braavos(pessoas)
 
     #escrita
-    # a função data_to_json vem aqui
-
-    funcao_data_json = escrita.data_to_json(pessoas)
-
-    print(pessoas)
+    escrita = escrita.data_to_json(pessoas , filter_1, filter_2)
