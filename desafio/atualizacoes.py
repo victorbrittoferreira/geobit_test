@@ -1,49 +1,51 @@
 from copy import deepcopy
-from datetime import datetime, date
-import time
 from typing import List
 
-from .leitura import ler_json
-
-import pdb 
-
-
-data = deepcopy(ler_json())
+import time
 
 def atualiza_nascimento_timestamp_para_date_string(data: List[dict]) -> List[dict]:
-#def atualiza_nascimento_timestamp_para_date_string():
-   
-    for index, _ in enumerate (data['pessoas']):
+    """
+    This function takes a object dict type, unpacks it, 
+    transforms the nasicmento attribute, which is in type timestamp,
+    and transforms it into a calendar date each person listed "
+    """
+    
+    try:
+        data = deepcopy(data)
 
-        birth_timestamp = data['pessoas'][index]['nascimento']
+        for pessoa in data:
 
-        #birth_converted = time.strftime(' %d/%m/%Y ', (time.localtime (int (birth_timestamp))))
-        birth_converted = time.strftime(' %d%m%Y ', (time.localtime  (birth_timestamp)))
-        #birth_converted = date.fromtimestamp(birth_timestamp)
-        
-        data['pessoas'][index]['nascimento'] = (int(birth_converted))
-        #print(type(data['pessoas'][index]['nascimento']))
+            birth_timestamp = pessoa['nascimento']
+            birth_converted = time.strftime('%d/%m/%Y', (time.localtime  (birth_timestamp)))
 
-    return data
-    #return {}
+            pessoa['nascimento'] = birth_converted
 
-#print(atualiza_nascimento_timestamp_para_date_string (List[dict]))
-#print(atualiza_nascimento_timestamp_para_date_string ())
+        return data
+    except:
+        return print("There was a problem executing the 'atualiza_nascimento_timestamp_para_date_string' function from the atualizacoes file.  ")
+
 
 def atualiza_altura_centimetro_para_metro(data: List[dict]) -> List[dict]:
-#def atualiza_altura_centimetro_para_metro():
-    
-    for index, _ in enumerate (data['pessoas']):
+    """
+    This function receives a object dict type, unzips it, processes the height,
+     which is in centimeters and transforms it into meters, for each person listed "
+    """
+    try:
+        data = deepcopy(data)
 
-        meter_in_centimetres = 100
+        for pessoa in data:
 
-        altura_converted = data['pessoas'][index]['altura'] / meter_in_centimetres
-        data['pessoas'][index]['altura'] = altura_converted
+            meter_in_centimetres = 100
 
-    return data
-    #return {}
+            altura_converted = pessoa['altura'] / meter_in_centimetres
 
-#print(atualiza_altura_centimetro_para_metro())
+            pessoa['altura'] = altura_converted
+
+        return data
+    except:
+        return print("There was a problem executing the 'atualiza_altura_centimetro_para_metro' function from the atualizacoes file.  ")
+
+
 
 
 

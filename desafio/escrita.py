@@ -1,78 +1,54 @@
+from typing import List
 import json
 
-from leitura import ler_json
-from adicoes import add_imcs, add_idade, add_nome_completo
-from atualizacoes import (
-    atualiza_altura_centimetro_para_metro, 
-    atualiza_nascimento_timestamp_para_date_string
-)
-from filtros import (
-    filtra_maior_de_idade_com_imc_acima_do_peso,
-    filtra_mulheres_de_meeren_braavos
-)
 
-print('1')
+def data_dict_to_json_file(pessoas: List[dict], filter_1: List[dict], filter_2: List[dict]) -> dict: 
+    """
+    This function takes an object of type dict and processes the respective methods of adding,
+    filtering and returning the dictionary in json file.
+    """
 
-class Run(object):
-    json_data = {
-        "pessoas": [],
-        "filtros": {
-            "menores_de_idade_com_imc_acima_peso": [],
-            "mulheres_meeren_braavos": []
-        }
-    }
+    try:
+        json_data = {
+                "pessoas": [],
+                "filtros": {
+                    "maiores_de_idade_com_imc_acima_peso": [],
+                    "mulheres_meeren_braavos": []
+                }
+            }
 
-    print('2')
+        def execute_adicoes_e_atualizacoes():
+            try:
+                for pessoa in pessoas:
+                    json_data['pessoas'].append(pessoa)
+                return pessoas
 
-    def __init__(self, data):
-        ...
-    print('3')
-    def execute_adicoes_e_atualizacoes(self):
-        """
-            Leia o arquivo json usando a função ler_json e acima do
-            retorno aplique todas as adições e atualizações. Por fim,
-            adicione todas as pessoas já formatadas ao 
-            self.json_data['pessoas']
-        """
-        print('x')
-        ler_json()
-
-        add_imcs()
-        add_idade()
-        add_nome_completo()
-
-        atualiza_altura_centimetro_para_metro()
-        atualiza_nascimento_timestamp_para_date_string()
-
-        return json_data
-
-        ...
-    print('4')
-    def execute_filtros(self):
-        """
-            Aplique cada filtro usando como data a variável 
-            self.json_data['pessoas'] e adicione o resultado em 
-            self.json_data['filtros'] na chave respectiva ao filtro.
-        """
-        filtra_maior_de_idade_com_imc_acima_do_peso
-        filtra_mulheres_de_meeren_braavos
+            except:
+                return print("There was a problem executing the 'execute_adicoes_e_atualizacoes' function from the escrita file.  ")    
         
-        return json_data
-        ...
-    print('5')
-    def dict_to_json():
-        """
-            Transforme o dicionário self.json_data 
-            em um arquivo chamado output.json
-        """
-        json_data = data
-        #with open('/home/kurt/GitHub/geobit_test/output.json', 'w') as fp:
-        #    output.json = json.dump(json_data, fp)
+        def execute_filtros():
+            try:
+                for pessoa in filter_2:
+                    json_data['filtros']['mulheres_meeren_braavos'].append(pessoa)
 
-        print(output.json)
-        #return output.json
+                for pessoa in filter_1:
+                    json_data['filtros']['maiores_de_idade_com_imc_acima_peso'].append(pessoa)
+                return pessoas
+
+            except:
+                return print("There was a problem executing the 'execute_filtros' function from the escrita file.  ")    
+
+        def dict_to_json():
+            try:
+                with open('/home/kurt/GitHub/geobit_test/output.json', 'w') as fp:
+                    json.dump(json_data, fp, ensure_ascii= False, indent= 4)
+                    
+            except:
+                return print("There was a problem executing the 'execute_filtros' function from the escrita file")  
+
+
+
+        execute_adicoes_e_atualizacoes(), execute_filtros(),  dict_to_json()
+    except:
+        return print("There was a problem executing the 'data_dict_to_json_file' function from the escrita file")    
         
-        #output.json =json.dumps(data)
-
-    print('6')
-    print(dict_to_json())
