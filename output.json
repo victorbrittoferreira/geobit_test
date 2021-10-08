@@ -482,7 +482,7 @@
         }
     ],
     "filtros": {
-        "menores_de_idade_com_imc_acima_peso": [
+        "maiores_de_idade_com_imc_acima_peso": [
             {
                 "id": 26,
                 "sexo": "M",

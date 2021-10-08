@@ -4,30 +4,36 @@ from typing import List
 import time
 
 def atualiza_nascimento_timestamp_para_date_string(data: List[dict]) -> List[dict]:
-    data = deepcopy(data)
+    try:
+        data = deepcopy(data)
 
-    for pessoa in data:
+        for pessoa in data:
 
-        birth_timestamp = pessoa['nascimento']
-        birth_converted = time.strftime('%d/%m/%Y', (time.localtime  (birth_timestamp)))
-        
-        pessoa['nascimento'] = birth_converted
+            birth_timestamp = pessoa['nascimento']
+            birth_converted = time.strftime('%d/%m/%Y', (time.localtime  (birth_timestamp)))
 
-    return data
+            pessoa['nascimento'] = birth_converted
+
+        return data
+    except:
+        return print("There was a problem executing the 'atualiza_nascimento_timestamp_para_date_string' function from the atualizacoes file.  ")
 
 
 def atualiza_altura_centimetro_para_metro(data: List[dict]) -> List[dict]:
-    data = deepcopy(data)
-    
-    for pessoa in data:
+    try:
+        data = deepcopy(data)
 
-        meter_in_centimetres = 100
+        for pessoa in data:
 
-        altura_converted = pessoa['altura'] / meter_in_centimetres
+            meter_in_centimetres = 100
 
-        pessoa['altura'] = altura_converted
+            altura_converted = pessoa['altura'] / meter_in_centimetres
 
-    return data
+            pessoa['altura'] = altura_converted
+
+        return data
+    except:
+        return print("There was a problem executing the 'atualiza_altura_centimetro_para_metro' function from the atualizacoes file.  ")
 
 
 
