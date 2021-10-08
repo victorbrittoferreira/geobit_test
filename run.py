@@ -19,4 +19,4 @@ if __name__ == '__main__':
     filter_2 = filtros.filtra_mulheres_de_meeren_braavos(pessoas)
 
     #escrita
-    escrita = escrita.data_to_json(pessoas , filter_1, filter_2)
+    escrita = escrita.data_dict_to_json_file(pessoas , filter_1, filter_2)

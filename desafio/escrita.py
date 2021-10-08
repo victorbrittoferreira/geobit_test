@@ -2,9 +2,13 @@ from typing import List
 import json
 
 
-def data_to_json(pessoas: List[dict], filter_1: List[dict], filter_2: List[dict]) -> dict: 
-    try:
+def data_dict_to_json_file(pessoas: List[dict], filter_1: List[dict], filter_2: List[dict]) -> dict: 
+    """
+    This function takes an object of type dict and processes the respective methods of adding,
+    filtering and returning the dictionary in json file.
+    """
 
+    try:
         json_data = {
                 "pessoas": [],
                 "filtros": {
@@ -12,16 +16,6 @@ def data_to_json(pessoas: List[dict], filter_1: List[dict], filter_2: List[dict]
                     "mulheres_meeren_braavos": []
                 }
             }
-        #def __init__(self, data):
-        #    self.id = id
-        #    self.sexo = sexo
-        #    self.altura = altura
-        #    self.peso = peso
-        #    self.nascimento = nascimento
-        #    self.endereço = endereço
-        #    self.idade = idade
-        #    self.imc = imc
-        #    self.nome_completo = nome_completo
 
         def execute_adicoes_e_atualizacoes():
             try:
@@ -46,19 +40,15 @@ def data_to_json(pessoas: List[dict], filter_1: List[dict], filter_2: List[dict]
 
         def dict_to_json():
             try:
-            #execute_adicoes_e_atualizacoes()
-            #execute_filtros()
-
                 with open('/home/kurt/GitHub/geobit_test/output.json', 'w') as fp:
                     json.dump(json_data, fp, ensure_ascii= False, indent= 4)
+                    
             except:
-                return print("There was a problem executing the 'execute_filtros' function from the escrita file.  ")  
+                return print("There was a problem executing the 'execute_filtros' function from the escrita file")  
 
 
 
-        return execute_adicoes_e_atualizacoes(), execute_filtros(),  dict_to_json()
-
+        execute_adicoes_e_atualizacoes(), execute_filtros(),  dict_to_json()
     except:
-        return print("There was a problem executing the 'data_to_json' function from the escrita file.")
-
-    
+        return print("There was a problem executing the 'data_dict_to_json_file' function from the escrita file")    
+        

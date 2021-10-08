@@ -4,6 +4,12 @@ from typing import List
 import time
 
 def atualiza_nascimento_timestamp_para_date_string(data: List[dict]) -> List[dict]:
+    """
+    This function takes a object dict type, unpacks it, 
+    transforms the nasicmento attribute, which is in type timestamp,
+    and transforms it into a calendar date each person listed "
+    """
+    
     try:
         data = deepcopy(data)
 
@@ -20,6 +26,10 @@ def atualiza_nascimento_timestamp_para_date_string(data: List[dict]) -> List[dic
 
 
 def atualiza_altura_centimetro_para_metro(data: List[dict]) -> List[dict]:
+    """
+    This function receives a object dict type, unzips it, processes the height,
+     which is in centimeters and transforms it into meters, for each person listed "
+    """
     try:
         data = deepcopy(data)
 

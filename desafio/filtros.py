@@ -4,6 +4,11 @@ from typing import List
 from .adicoes import add_imcs, add_idade 
 
 def filtra_maior_de_idade_com_imc_acima_do_peso(data: List[dict]) -> List[dict]:
+    """
+    This function receives an object dict type, unpacks it, and filters,
+    from the listed people, only those who are overweight category, 
+    referring to the 'BMI' attribute, and are of civil majority (18 years)"
+    """
     try:
         data = deepcopy(data)
         data_temp = []
@@ -27,6 +32,12 @@ def filtra_maior_de_idade_com_imc_acima_do_peso(data: List[dict]) -> List[dict]:
         return print("There was a problem executing the 'filtra_maior_de_idade_com_imc_acima_do_peso' function from the filtros file.  ")    
 
 def filtra_mulheres_de_meeren_braavos(data: List[dict]) -> List[dict]:
+    """
+    This function takes an object dict type, unpacks it, and filters,
+    from the listed people, only those who are women and originate from the
+    city of Meeren in the state of Braavos "
+    """
+
     try:
         data = deepcopy(data)
         data_temp = []
