@@ -2,7 +2,7 @@ from typing import List
 import json
 
 
-def data_dict_to_json_file(pessoas: List[dict], filter_1: List[dict], filter_2: List[dict]) -> dict: 
+def data_dict_to_json_file(pessoas: List[dict], filter_1: List[dict], filter_2: List[dict]): 
     """
     This function takes an object of type dict and processes the respective methods of adding,
     filtering and returning the dictionary in json file.
